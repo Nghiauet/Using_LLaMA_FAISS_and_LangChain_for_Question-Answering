@@ -24,8 +24,8 @@ class PerformanceBenchmark:
             pred = self.pipeline(example["text"])[0]["label"]
             preds.append(intents.str2int(pred))
             labels.append(example["intent"])
-        # accuracy = accuracy_score.compute(predictions=preds, references=labels)
-        accuracy = 0
+        accuracy = accuracy_score.compute(predictions=preds, references=labels)
+        # accuracy = 0
         print(f"Accuracy on test set - {accuracy['accuracy']:.3f}")
         return accuracy
     def compute_size(self): 
